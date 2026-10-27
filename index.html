@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="sw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zero Gravity — tafuta taarifa kutoka vyanzo vya umma kwa uwajibikaji.">
+  <title>Zero Gravity — Search</title>
+  <style>
+    :root { color-scheme: dark; --bg:#080b16; --panel:#11182a; --line:#273451; --text:#edf2ff; --muted:#9eaccb; --accent:#8b7cff; --accent2:#45d6c5; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif; color:var(--text); background:radial-gradient(ellipse at 50% 0%,#20245a 0,transparent 48%),var(--bg); }
+    main { width:min(900px,92vw); margin:0 auto; padding:9vh 0 48px; }
+    .brand { text-align:center; margin-bottom:34px; }
+    .orb { width:58px;height:58px;border:1px solid #a8a0ff;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;box-shadow:0 0 32px #8b7cff66,inset 0 0 18px #8b7cff33;color:var(--accent2);font-size:26px; }
+    h1 { margin:0;font-size:clamp(2.3rem,7vw,4.5rem);letter-spacing:-.06em; }
+    h1 span { color:var(--accent2); }
+    .tagline { color:var(--muted); margin:10px 0 0; }
+    .searchbox { display:flex;gap:10px;background:#10172a;border:1px solid var(--line);padding:9px;border-radius:18px;box-shadow:0 18px 60px #0005; }
+    input { flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font-size:1rem;padding:12px; }
+    button { border:0;border-radius:12px;padding:0 22px;background:linear-gradient(135deg,var(--accent),#5d65db);color:white;font-weight:700;cursor:pointer; }
+    button:disabled { opacity:.6;cursor:wait; }
+    .hint { text-align:center;color:var(--muted);font-size:.88rem;margin:12px 0 28px; }
+    .status { color:var(--muted);margin:18px 2px;min-height:1.4em; }
+    .results { display:grid;gap:12px; }
+    .result { padding:19px 20px;background:linear-gradient(135deg,#121a2d,#0e1424);border:1px solid var(--line);border-radius:15px; }
+    .result h2 { font-size:1.12rem;margin:0 0 8px; }
+    a { color:#b7c1ff;text-decoration:none; } a:hover { text-decoration:underline; }
+    .result p { color:#c2cbe0;line-height:1.6;margin:0 0 12px; }
+    .source { font-size:.8rem;color:var(--accent2); }
+    footer { color:#7f8cac;font-size:.82rem;line-height:1.6;margin-top:34px;text-align:center; }
+    @media(max-width:560px){ .searchbox{flex-direction:column}.searchbox button{padding:14px}.brand{margin-bottom:26px}main{padding-top:6vh} }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="brand">
+      <div class="orb" aria-hidden="true">✦</div>
+      <h1>ZERO <span>GRAVITY</span></h1>
+      <p class="tagline">Tafuta maarifa. Chunguza vyanzo. Fanya maamuzi kwa taarifa.</p>
+    </header>
+
+    <form id="searchForm" class="searchbox" role="search">
+      <input id="query" type="search" placeholder="Tafuta mada, mtu, mahali au taarifa..." aria-label="Andika unachotafuta" required>
+      <button id="searchButton" type="submit">Tafuta</button>
+    </form>
+    <p class="hint">Toleo la mwanzo hutafuta makala za Wikipedia/Wikimedia za umma.</p>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <section id="results" class="results" aria-label="Matokeo ya utafutaji"></section>
+
+    <footer>
+      Zero Gravity ni zana ya utafutaji wa taarifa za umma, si mfumo wa kuingia kwenye akaunti binafsi
+      au kupata data zilizofichwa. Hakiki taarifa muhimu kwa chanzo chake cha asili.
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
